@@ -1,0 +1,45 @@
+.wrapper {
+    position: relative;
+    max-width: 343px;
+    margin: 12px auto;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.pageEnabled {
+    display: flex;
+    flex-direction: column;
+}
+
+.pageDisabled {
+    display: none;
+}
+
+.linkBack {
+    font-family: 'RobotoRegular', sans-serif;
+    font-weight: 400;
+    line-height: 19px;
+    text-decoration: none;
+    color: #333333;
+}
+
+.linkBack img {
+    margin-right: 15px;
+}
+
+.title {
+    margin-top: 30px;
+    font-family: 'InterSemiBold', sans-serif;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+.text {
+    margin-top: 10px;
+    font-family: "InterRegular";
+    font-size: 14px;
+    line-height: 18.2px;
+}

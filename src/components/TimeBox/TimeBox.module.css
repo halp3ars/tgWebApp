@@ -1,0 +1,70 @@
+.timeBoxContent {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+}
+
+.errorDisabled {
+    display: none;
+}
+
+.errorEnabled {
+    padding-bottom: 10px;
+    color: #ff3434;
+    font-size: 12px;
+}
+
+.formContent {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 450px;
+}
+.title {
+    margin: 20px 0 10px 0;
+    font-family: 'InterMedium', sans-serif;
+    font-size: 18px;
+    line-height: 21.78px;
+}
+.btnAddTime {
+    display: flex;
+    align-items: center;
+    border: none;
+    font-family: 'InterRegular', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    color: #3E61BC;
+    background-color:transparent;
+    cursor: pointer;
+}
+
+.btnAddTime svg {
+    fill: currentColor;
+    margin-right: 6px;
+}
+.btnSubmit {
+    width: 100%;
+    height: 50px;
+    border-radius: 10px;
+    border: none;
+    font-family: 'InterMedium', sans-serif;
+    font-size: 14px;
+    line-height: 17px;
+    color: #fff;
+    background-color: #3E61BC;
+}
+
+.btnSubmit:disabled {
+    background-color: #9099bb;
+}
+
+.btnAddTime:disabled{
+    color: #8897bd;
+}
+
+.btnAddTime:disabled + .btnAdd_time:disabled svg{
+    color: #8897bd;
+    fill: currentColor;
+}
+
+

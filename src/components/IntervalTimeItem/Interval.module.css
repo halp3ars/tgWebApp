@@ -1,0 +1,44 @@
+.form {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.timeStart {
+    margin-right: 12px;
+}
+
+.timeStart, .timeEnd {
+    width: 138px;
+    height: 50px;
+    padding-left: 10px;
+    border: none;
+    border-radius: 5px;
+    font-family: 'InterRegular', sans-serif;
+    font-size: 18px;
+    line-height: 21.78px;
+    background-color: #EFF0F5;
+}
+
+.form:first-child button{
+    display: none;
+}
+
+.timeEnd {
+    margin-right: 11px;
+}
+
+.timeStart::-webkit-calendar-picker-indicator, .timeEnd::-webkit-calendar-picker-indicator{
+    background-image: url("../../assets/imges/arrowTimeIcon.svg");
+    background-repeat: no-repeat;
+    background-size: 70% 90%;
+}
+
+.btnDelete {
+    width: 20px;
+    height: 20px;
+    margin-bottom: 4px;
+    border:none;
+    background-color: transparent;
+    cursor: pointer;
+}
