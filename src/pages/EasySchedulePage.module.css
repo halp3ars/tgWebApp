@@ -39,7 +39,7 @@
 
 .text {
     margin-top: 10px;
-    font-family: "InterRegular";
+    font-family: "InterRegular", sans-serif;
     font-size: 14px;
     line-height: 18.2px;
 }

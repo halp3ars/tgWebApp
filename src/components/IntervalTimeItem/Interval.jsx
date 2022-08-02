@@ -1,5 +1,5 @@
 import React from 'react';
-import Plus from "../../assets/imges/deleteIcon.svg";
+import Plus from "../Access/Img/del.svg";
 
 import styles from './Interval.module.css'
 

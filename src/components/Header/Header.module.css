@@ -1,0 +1,23 @@
+.headerPage{
+    display: flex;
+    align-items: center;
+    height: 40px;
+}
+
+.union{
+    width: 18px;
+    height: 10px;
+}
+
+.back{
+    display: flex;
+    align-items: center;
+    margin-left: 15px;
+
+    font-family: 'Roboto', "sans-serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #333333;
+}

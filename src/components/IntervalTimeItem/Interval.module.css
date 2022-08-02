@@ -29,7 +29,8 @@
 }
 
 .timeStart::-webkit-calendar-picker-indicator, .timeEnd::-webkit-calendar-picker-indicator{
-    background-image: url("../../assets/imges/arrowTimeIcon.svg");
+
+    background-image: url("../Access/Img/linear.svg");
     background-repeat: no-repeat;
     background-size: 70% 90%;
 }

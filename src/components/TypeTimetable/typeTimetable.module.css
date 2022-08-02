@@ -1,0 +1,77 @@
+/*.tabButton_content {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    gap: 15px;*/
+/*    width: 100%;*/
+/*    height: 30px;*/
+/*    margin-top: 20px;*/
+/*    border-radius: 5px;*/
+/*    display: flex;*/
+/*    background-color: #EFF0F5;*/
+/*}*/
+
+/*.buttonEverydayDisabled, .buttonEasyDisabled {*/
+/*    width: 50%;*/
+/*    border: none;*/
+/*    font-family: 'InterRegular';*/
+/*    font-size: 12px;*/
+/*    line-height: 14.25px;*/
+/*    cursor: pointer;*/
+/*    border-radius: 5px;*/
+/*}*/
+
+/*.buttonEverydayEnabled, .buttonEasyEnabled {*/
+/*    background-color: #3E61BC;*/
+/*    width: 50%;*/
+/*    border: none;*/
+/*    font-family: 'InterRegular';*/
+/*    font-size: 12px;*/
+/*    line-height: 14.25px;*/
+/*    color:#ffff;*/
+/*    border-radius: 5px;*/
+/*    cursor: pointer;*/
+/*}*/
+
+/*.button_everyday {*/
+/*    border-bottom-left-radius: 5px;*/
+/*    border-top-left-radius: 5px;*/
+/*}*/
+
+/*.button_easy {*/
+/*    border-bottom-right-radius: 5px;*/
+/*    border-top-right-radius: 5px;*/
+/*}*/
+
+
+
+.typeTimetable{
+    width: 100%;
+    height: 30px;
+    margin-top: 13px;
+
+    display: flex;
+    background: #EFF0F5;
+    border-radius: 5px;
+    font-family: 'Inter', "sans-serif";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 12px;
+}
+.dailyTimetableEnabled, .simpleTimetableEnabled {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #3E61BC;
+    color: #fff;
+    border-radius: 5px;
+}
+
+.dailyTimetableDisabled, .simpleTimetableDisabled{
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+}
