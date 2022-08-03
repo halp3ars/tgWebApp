@@ -4,7 +4,9 @@ import TgDatePicker from "./components/TgDatePicker";
 
 
 function App() {
-  return (
+    console.log(window.Telegram.WebApp)
+
+    return (
     <div className="App">
         <TgDatePicker/>
     </div>

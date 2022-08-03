@@ -7,12 +7,13 @@ import IntervalTimeItem from "./SelectTime/IntervalTymeItem";
 import header from "../../Header/Header";
 
 
+
 const DaysOfWeek = () => {
 
     const [interval, setInterval] = useState([{
         id: 0,
         title: "ПН",
-        isActive: true,
+        isActive: false,
         error: '',
         workTime: [{
             id: 0,
@@ -22,7 +23,7 @@ const DaysOfWeek = () => {
     }, {
         id: 1,
         title: "ВТ",
-        isActive: true,
+        isActive: false,
         error: '',
         workTime: [{
             id: 0,
@@ -32,7 +33,7 @@ const DaysOfWeek = () => {
     }, {
         id: 2,
         title: "СР",
-        isActive: true,
+        isActive: false,
         error: '',
         workTime: [{
             id: 0,
@@ -42,7 +43,7 @@ const DaysOfWeek = () => {
     }, {
         id: 3,
         title: "ЧТ",
-        isActive: true,
+        isActive: false,
         error: '',
         workTime: [{
             id: 0,
@@ -52,7 +53,7 @@ const DaysOfWeek = () => {
     }, {
         id: 4,
         title: "ПТ",
-        isActive: true,
+        isActive: false,
         error: '',
         workTime: [{
             id: 0,
@@ -62,7 +63,7 @@ const DaysOfWeek = () => {
     }, {
         id: 5,
         title: "СБ",
-        isActive: true,
+        isActive: false,
         error: '',
         workTime: [{
             id: 0,
@@ -72,7 +73,7 @@ const DaysOfWeek = () => {
     }, {
         id: 6,
         title: "ВС",
-        isActive: true,
+        isActive: false,
         error: '',
         workTime: [{
             id: 0,
@@ -241,7 +242,7 @@ const DaysOfWeek = () => {
         )
         const data = periodOfWorks.filter((item) => item.firstIntervalFrom != '')
         console.log({periodOfWorks: data})
-        fetch('https://104.248.45.71:8090/Schedule', {
+        fetch('', {
                 method: 'POST',
                 headers: {
                     "Content-Type": 'application/json',
@@ -249,13 +250,15 @@ const DaysOfWeek = () => {
                 body: JSON.stringify({periodOfWorks: data}),
             }
         ).then(res => {
-            window.location.href = "https://t.me/BeautyEyelashesBot"
+            // window.location.href = "https://t.me/BeautyEyelashesBot"
         })
 
     }
 
     const buttonAddTime = useRef([])
     const buttonSubmit = useRef()
+    let tg = window.Telegram.WebApp;
+    tg.MainButton.color = "#143F6B";
 
 
     return (
@@ -326,6 +329,7 @@ const DaysOfWeek = () => {
                     className={styles.btnSubmit}>Готово
                 </button>
             </div>
+            <script src="https://telegram.org/js/telegram-web-app.js"></script>
         </div>);
 };
 

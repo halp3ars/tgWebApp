@@ -20,7 +20,7 @@
 
 .oneOfDaysTimeActive {
     position: relative;
-    border-bottom: #EFF0F5;
+    border-bottom: var(--tg-theme-text-color);
 }
 
 .oneOfDaysTimeNotActive input{

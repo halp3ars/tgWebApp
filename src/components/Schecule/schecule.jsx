@@ -4,6 +4,7 @@ import DaysOfWeek from "./DaysOfWeek/daysOfWeek";
 // import TypeTimetable from "../TypeTimetable/typeTimetable";
 
 
+
 const Schecule = () => {
 
     return (
@@ -12,6 +13,7 @@ const Schecule = () => {
                 <DaysOfWeek/>
             </div>
         </div>
+
     );
 };
 

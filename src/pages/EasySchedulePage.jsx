@@ -9,7 +9,6 @@ const EasySchedulePage = () => {
         <div className={styles.wrapper}>
             <div className={styles.content}>
                 <div className={styles.pageEnabled}>
-                    <span className={styles.title}>Выберите график работы</span>
                     <span className={styles.text}>
                             Если Вы хотите более гибкий график,
                             воспользуйтесь вкладкой “Ежедневное расписание”
