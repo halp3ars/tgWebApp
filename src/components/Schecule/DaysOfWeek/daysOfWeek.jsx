@@ -241,7 +241,7 @@ const DaysOfWeek = () => {
         )
         const data = periodOfWorks.filter((item) => item.firstIntervalFrom != '')
         console.log({periodOfWorks: data})
-        fetch('https://localhost:8080/Schedule', {
+        fetch('https://104.248.45.71:8090/Schedule', {
                 method: 'POST',
                 headers: {
                     "Content-Type": 'application/json',
