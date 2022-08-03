@@ -57,13 +57,23 @@
     font-weight: 400;
     font-size: 12px;
 }
+
+:root{
+    --tg-theme-bg-color: red!important;
+    --tg-theme-text-color: black!important;
+}
+
+
 .dailyTimetableEnabled, .simpleTimetableEnabled {
     width: 50%;
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #3E61BC;
-    color: #fff;
+    /*background: #3E61BC;*/
+    background: var(--tg-theme-bg-color);
+    /*color:var(--tg-theme-text-color);*/
+    color: var(--tg-theme-text-color);
+    /*color: #fff;*/
     border-radius: 5px;
 }
 
