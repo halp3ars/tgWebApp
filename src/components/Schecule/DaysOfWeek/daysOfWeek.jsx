@@ -7,7 +7,6 @@ import IntervalTimeItem from "./SelectTime/IntervalTymeItem";
 import header from "../../Header/Header";
 
 
-
 const DaysOfWeek = () => {
 
     const [interval, setInterval] = useState([{
@@ -83,52 +82,9 @@ const DaysOfWeek = () => {
     },])
 
 
-    const validationError = {
-        isEmpty: {
-            id: 0,
-            error: false,
-            massage: "Необходимо указать время работы",
-        },
-        logicTime: {
-            id: 1,
-            error: false,
-            massage: "Время начала работы должно быть меньше времени окончания работы",
-        },
-        minWorkTime: {
-            id: 2,
-            error: false,
-            massage: "Минимальное время работы составляет 1 час"
-        },
-        startWorkTime: {
-            id: 3,
-            error: false,
-            massage: "Время начала работы: 7:00"
-        },
-        endWorkTime: {
-            id: 4,
-            error: false,
-            massage: "Время окончания работы: 23:00"
-        },
-        intersection: {
-            id: 5,
-            error: false,
-            massage: "Время начала новой смены не должно пересекаться со старыми"
-        }
-    }
-
-
     function validation(event, daysOfWeek) {
         event.preventDefault();
-        // validationErrors(event, daysOfWeek)
-        // let errorValid = false
-        // for (let key in validationError) {
-        //     if (validationError[key].error === true) {
-        //         alert(validationError[key].massage)
-        //         errorValid = true;
-        //         break;
-        //     }
-        // }
-        if ((daysOfWeek.workTime.length === 4) /*|| (errorValid))*/) {
+        if (daysOfWeek.workTime.length === 4) {
 
         } else {
             setInterval(interval.map((item) => {
@@ -260,6 +216,10 @@ const DaysOfWeek = () => {
     let tg = window.Telegram.WebApp;
     tg.MainButton.color = "#143F6B";
 
+    useEffect(() => {
+        buttonSubmit.current.disabled = true
+    }, [])
+
 
     return (
         <div className={styles.daysOfWeek}>
@@ -280,7 +240,7 @@ const DaysOfWeek = () => {
                             </button>
                             <div
                                 className={daysOfWeek.isActive ? styles.oneOfDaysTimeActive : styles.oneOfDaysTimeNotActive}>
-                                <form id="intervalTimes">
+                                <form onSubmit={(e) => e.preventDefault()}>
                                     {daysOfWeek.workTime.map((item) => (
                                         <IntervalTimeItem key={item.id + Math.random()}
                                                           value={interval}
@@ -322,62 +282,13 @@ const DaysOfWeek = () => {
             <div>
                 <button
                     form="intervalTimes"
-                    type='submit'
-                    // disabled={true}
                     ref={buttonSubmit}
                     onClick={(e) => postTelegram(e)}
                     className={styles.btnSubmit}>Готово
                 </button>
             </div>
-            <script src="https://telegram.org/js/telegram-web-app.js"></script>
+            {/*<script src="https://telegram.org/js/telegram-web-app.js"></script>*/}
         </div>);
 };
 
 export default DaysOfWeek;
-
-// const validationErrors = (event, daysOfWeek) => {
-//     daysOfWeek.workTime.map((time) => {
-//         const timeStart = time.timeStart.split(':')[0] * 60 + time.timeStart.split(':')[1] * 1
-//         const timeEnd = time.timeEnd.split(':')[0] * 60 + time.timeEnd.split(':')[1] * 1
-//
-//         // Проверка на пустые значения строк
-//         if (time.timeStart === "" || time.timeEnd === "") {
-//             // alert(validationError.isEmpty.massage)
-//             validationError.isEmpty.error = true
-//         }
-//
-//         // Проверка на логику 1-е время < 2-го
-//         if (timeStart > timeEnd) {
-//             // alert(validationError.logicTime.massage)
-//             validationError.logicTime.error = true
-//         }
-//
-//         // Проверка на время мин время работы(мин время на работу 60 мин)
-//         if (timeEnd - timeStart < 60) {
-//             // alert(validationError.minWorkTime.massage)
-//             validationError.minWorkTime.error = true
-//         }
-//
-//         // Проверка правильности начального времени
-//         if (timeStart < 420 || timeStart > 1320) {
-//             // alert(validationError.startWorkTime.massage)
-//             validationError.startWorkTime.error = true
-//         }
-//
-//         // Проверка правильности конечного времени
-//         if (timeEnd < 480 || timeEnd > 1380) {
-//             // alert(validationError.endWorkTime.massage)
-//             validationError.endWorkTime.error = true
-//         }
-//
-//         if (time.id) {
-//             let timeLastEnd = daysOfWeek.workTime[time.id - 1].timeEnd.split(':')[0] * 60 + daysOfWeek.workTime[time.id - 1].timeEnd.split(':')[1] * 1
-//             console.log(timeLastEnd)
-//             console.log(timeStart)
-//             if (timeStart < timeLastEnd) {
-//                 validationError.intersection.error = true
-//             }
-//         }
-//         return validationError;
-//     })
-// }

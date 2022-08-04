@@ -32,7 +32,7 @@ const IntervalTimeItem = (props) => {
     const validationEndTime = (event) => {
         const timeStart = startTime.split(':')[0] * 60 + startTime.split(':')[1] * 1
         const timeEnd = endTime.split(':')[0] * 60 + endTime.split(':')[1] * 1
-        if (startTime === "" || endTime === "") {
+        if (value[daysOfWeekId].workTime[idItem].timeStart === "" || value[daysOfWeekId].workTime[idItem].timeEnd === "") {
             buttonSubmit.current.disabled = true
             buttonAddTime.current[daysOfWeekId].disabled = true
             setValue(value.map((item) => {
@@ -101,15 +101,6 @@ const IntervalTimeItem = (props) => {
                 } : item
             }))
         }
-
-        // if (time.id) {
-        //     let timeLastEnd = daysOfWeek.workTime[time.id - 1].timeEnd.split(':')[0] * 60 + daysOfWeek.workTime[time.id - 1].timeEnd.split(':')[1] * 1
-        //     console.log(timeLastEnd)
-        //     console.log(timeStart)
-        //     if (timeStart < timeLastEnd) {
-        //         validationError.intersection.error = true
-        //     }
-        // }
     }
 
 
