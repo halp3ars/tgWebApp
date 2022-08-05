@@ -216,7 +216,7 @@ const TimeBox = () => {
                                         (workTime[3].timeEnd).slice(0, 2) : 0) : 0 : 0 : 0
             ))
             console.log({periodOfWorks: periodOfWorks})
-            fetch('https://192.168.111.1 59/Schedule',
+            fetch('https://halpear.social:80/Schedule',
                 {
                     method: 'POST',
                     headers: {
