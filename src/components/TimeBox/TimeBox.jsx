@@ -225,7 +225,7 @@ const TimeBox = () => {
                     body: JSON.stringify({periodOfWorks: periodOfWorks}),
                 }
             ).then(res => {
-                window.location.href = "https://t.me/BeautyEyelashesBot"
+                window.location.href = "https://t.me/ndfsdjkgnj_bot"
             })
         }
 
