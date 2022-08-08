@@ -206,7 +206,7 @@ const DaysOfWeek = () => {
                 body: JSON.stringify({periodOfWorks: data}),
             }
         ).then(res => {
-            // window.location.href = "https://t.me/BeautyEyelashesBot"
+            window.location.href = "https://t.me/BeautyEyelashesBot"
         })
 
     }
