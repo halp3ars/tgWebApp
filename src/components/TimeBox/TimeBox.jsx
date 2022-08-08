@@ -216,7 +216,7 @@ const TimeBox = () => {
                                         (workTime[3].timeEnd).slice(0, 2) : 0) : 0 : 0 : 0
             ))
             console.log({periodOfWorks: periodOfWorks})
-            fetch('https://halpear.social:80/Schedule',
+            fetch('https://192.168.111.1 59/Schedule',
                 {
                     method: 'POST',
                     headers: {
@@ -225,7 +225,7 @@ const TimeBox = () => {
                     body: JSON.stringify({periodOfWorks: periodOfWorks}),
                 }
             ).then(res => {
-                window.location.href = "https://t.me/ndfsdjkgnj_bot"
+                window.location.href = "https://t.me/BeautyEyelashesBot"
             })
         }
 

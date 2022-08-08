@@ -198,7 +198,7 @@ const DaysOfWeek = () => {
         )
         const data = periodOfWorks.filter((item) => item.firstIntervalFrom != '')
         console.log({periodOfWorks: data})
-        fetch('https://halpear.social:80/Schedule', {
+        fetch('', {
                 method: 'POST',
                 headers: {
                     "Content-Type": 'application/json',
@@ -206,7 +206,7 @@ const DaysOfWeek = () => {
                 body: JSON.stringify({periodOfWorks: data}),
             }
         ).then(res => {
-             window.location.href = "https://t.me/ndfsdjkgnj_bot"
+            // window.location.href = "https://t.me/BeautyEyelashesBot"
         })
 
     }
@@ -217,7 +217,7 @@ const DaysOfWeek = () => {
     tg.MainButton.color = "#143F6B";
 
     useEffect(() => {
-        buttonSubmit.current.disabled = false
+        buttonSubmit.current.disabled = true
     }, [])
 
 
