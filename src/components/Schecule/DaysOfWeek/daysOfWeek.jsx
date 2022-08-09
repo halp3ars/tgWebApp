@@ -198,7 +198,7 @@ const DaysOfWeek = () => {
         )
         const data = periodOfWorks.filter((item) => item.firstIntervalFrom != '')
         console.log({periodOfWorks: data})
-        fetch('', {
+        fetch('https://halpear.social:80/Schedule', {
                 method: 'POST',
                 headers: {
                     "Content-Type": 'application/json',
