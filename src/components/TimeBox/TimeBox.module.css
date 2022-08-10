@@ -35,14 +35,16 @@
     font-family: 'InterRegular', sans-serif;
     font-size: 14px;
     line-height: 17px;
-    color: #3E61BC;
+    /*color: #3E61BC;*/
+    color: var(--tg-theme-text-color);
     background-color:transparent;
     cursor: pointer;
+
 }
 
-.btnAddTime svg {
+.btnAddTime svg path {
     fill: currentColor;
-    margin-right: 6px;
+    /*margin-right: 6px;*/
 }
 .btnSubmit {
     width: 100%;
@@ -62,6 +64,7 @@
 
 .btnAddTime:disabled{
     color: #8897bd;
+    display: none;
 }
 
 .btnAddTime:disabled + .btnAdd_time:disabled svg{

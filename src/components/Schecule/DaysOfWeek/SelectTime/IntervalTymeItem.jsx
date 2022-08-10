@@ -1,5 +1,5 @@
-import React from 'react';
-import DelButton from "../../../Access/Img/del.svg"
+import React, {Component} from 'react';
+import {ReactComponent as DelButton} from "../../../Access/Img/del.svg"
 import styles from "./IntervalTimeItem.module.css"
 
 const IntervalTimeItem = (props) => {
@@ -66,8 +66,9 @@ const IntervalTimeItem = (props) => {
                             } : item))
                         }
                     }}
-                    className={idItem !== 0 ? styles.delButtonActive : styles.delButtonNotActive}>
-                    <img src={DelButton} alt="del"/>
+                    className={idItem !== 0 && value[daysOfWeekId].isActive ? styles.delButtonActive : styles.delButtonNotActive}>
+                    {/*<img src={DelButton} alt="del"/>*/}
+                    <DelButton />
                 </button>
             </div>
         </div>

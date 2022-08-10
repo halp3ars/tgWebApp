@@ -215,8 +215,8 @@ const TimeBox = () => {
                                     inter.fourthIntervalTo = workTime[3].timeEnd !== '' ?
                                         (workTime[3].timeEnd).slice(0, 2) : 0) : 0 : 0 : 0
             ))
-            console.log({periodOfWorks: periodOfWorks})
-            fetch('https://192.168.111.1 59/Schedule',
+            /*  LINK SIMPLE SCHEDULE*/
+            fetch('https://halpear.social:80/Schedule',
                 {
                     method: 'POST',
                     headers: {
@@ -225,7 +225,8 @@ const TimeBox = () => {
                     body: JSON.stringify({periodOfWorks: periodOfWorks}),
                 }
             ).then(res => {
-                window.location.href = "https://t.me/BeautyEyelashesBot"
+                // eslint-disable-next-line no-undef
+                Telegram.WebApp.close()
             })
         }
 

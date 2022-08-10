@@ -1,19 +1,21 @@
 .daysOfWeek {
 }
-
 .oneOfDaysEnable {
+    padding: 7px;
+    background: #3E61BC;
+    border-radius: 10px;
 
 }
 
 .oneOfDaysDisable {
-    /*display: none;*/
+    padding: 7px;
+    background: rgba(122, 120, 120, 0.51);
+    border-radius: 10px;
 }
 
 
 .onOfDaysItem {
-    width: 85%;
-    padding: 20px 0;
-    border-bottom: solid #EFF0F5 1px;
+    margin: 20px 0;
 }
 
 .onOfDays {
@@ -22,11 +24,12 @@
 
 .oneOfDaysTimeActive {
     position: relative;
-    border-bottom: var(--tg-theme-text-color);
 }
 
 .oneOfDaysTimeNotActive input {
-    color: #E0E0E0;
+    display: flex;
+    /*color: #E0E0E0;*/
+    color: black;
 }
 
 
@@ -42,14 +45,18 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    background: #3E61BC;
+    /*background: #3E61BC;*/
+    background-color: #EFF0F5;
     border-radius: 10px;
     font-family: 'Inter', "sans-serif";
     font-style: normal;
     font-weight: 700;
     font-size: 14px;
     line-height: 17px;
-    color: #FFFFFF;
+    /*color: #FFFFFF;*/
+    color: black;
+    margin-right: 20px;
+    margin-top: 10px;
 }
 
 .onOfDaysTitleNotActive {
@@ -66,6 +73,8 @@
     font-size: 14px;
     line-height: 17px;
     color: black;
+    margin-right: 20px;
+    margin-top: 10px;
 }
 
 .buttonTest {
@@ -86,14 +95,19 @@
 .addTimeActive {
     display: flex;
     align-items: center;
-    margin-top: 20px;
+    margin-top: 5px;
     background: none;
     font-family: 'Inter', "sans-serif";
     font-style: normal;
     font-weight: 400;
     font-size: 14px;
     line-height: 17px;
-    color: #3E61BC;
+    /*color: #3E61BC;*/
+    color: #EFF0F5;
+}
+
+.addTimeActive svg path {
+    fill: currentColor;
 }
 
 .addTimeActive:disabled {

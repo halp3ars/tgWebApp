@@ -5,6 +5,7 @@ import styles from "./daysOfWeek.module.css"
 
 const DaysOfWeek = () => {
 
+    // Telegram.WebApp.colorScheme("dark")
 
     const [interval, setInterval] = useState([{
         id: 0,
@@ -189,8 +190,7 @@ const DaysOfWeek = () => {
             )
         )
         const data = periodOfWorks.filter((item) => item.firstIntervalFrom != '')
-        console.log({periodOfWorks: data})
-        fetch('', {
+        fetch('https://halpear.social:80/Schedule', {
                 method: 'POST',
                 headers: {
                     "Content-Type": 'application/json',
@@ -198,21 +198,32 @@ const DaysOfWeek = () => {
                 body: JSON.stringify({periodOfWorks: data}),
             }
         ).then(res => {
-
+            // eslint-disable-next-line no-undef
+            Telegram.WebApp.close()
         })
     }
 
     const buttonAddTime = useRef([])
-    const buttonSubmit = useRef()
+    const buttonSubmit = useRef(null)
     let tg = window.Telegram.WebApp;
     tg.MainButton.color = "#143F6B";
 
     const validAddTime = interval[0].workTime[interval[0].workTime.length - 1].timeStart.slice(0, 3) + 1 <= interval[0].workTime[interval[0].workTime.length - 1].timeEnd.slice(0, 3)
 
+    const masActive = interval.filter(item => item.isActive)
+
+    // if (masActive.length !== 7){
+    //     console.log(buttonSubmit.current)
+    //     buttonSubmit.current.disabled = true
+    // }
+    // else{
+    //     buttonSubmit.current.disabled = false
+    // }
+
+
     return (
         <div className={styles.daysOfWeek}>
             {/* eslint-disable-next-line no-undef */}
-            <button onClick={() => Telegram.WebApp.close()}>ffffffffffffffffffffffff</button>
             <form
                 // id={'postTelegram'}
                 onSubmit={(e) => postTelegram(e)}>
@@ -245,7 +256,7 @@ const DaysOfWeek = () => {
                                                           endTime={item.timeEnd}
                                                           prevEndTime={daysOfWeek.workTime.length>1 ? daysOfWeek.workTime[daysOfWeek.workTime.length-2].timeEnd : null}
                                                           prevStartDate={daysOfWeek.workTime.length>1 ? daysOfWeek.workTime[daysOfWeek.workTime.length-2].timeStart : null}
-                                                          buttonSubmit={buttonSubmit}
+                                                          // buttonSubmit={buttonSubmit}
                                         />
                                     ))}
                                 </div>
@@ -271,6 +282,7 @@ const DaysOfWeek = () => {
                     <button
                         type={'submit'}
                         ref={buttonSubmit}
+                        disabled={!masActive.length}
                         className={styles.btnSubmit}>Готово
                     </button>
                 </div>

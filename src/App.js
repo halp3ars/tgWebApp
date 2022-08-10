@@ -3,8 +3,9 @@ import TgDatePicker from "./components/TgDatePicker";
 
 
 function App() {
+
     return (
-        <div className="App">
+        <div className="app">
             <TgDatePicker/>
         </div>
     );

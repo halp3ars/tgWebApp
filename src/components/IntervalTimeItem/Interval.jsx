@@ -1,5 +1,5 @@
 import React from 'react';
-import Plus from "../Access/Img/del.svg";
+import {ReactComponent as DeleteIcon} from "../Access/Img/del.svg";
 
 import styles from './Interval.module.css'
 
@@ -29,7 +29,7 @@ const Interval = (props) => {
             />
             <button onClick={() => {
                 onDelete(id)
-            }} className={styles.btnDelete}><img src={Plus} alt=""/></button>
+            }} className={styles.btnDelete}><DeleteIcon/></button>
         </div>
     );
 };
