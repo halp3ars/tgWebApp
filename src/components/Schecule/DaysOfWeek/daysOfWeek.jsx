@@ -1,13 +1,11 @@
 import React, {useEffect, useRef, useState} from 'react';
-import styles from "./daysOfWeek.module.css"
-
-import linear from "../../Access/Img/linear.svg"
 import liPlus, {ReactComponent as Plus} from "../../Access/Img/li_plus.svg"
 import IntervalTimeItem from "./SelectTime/IntervalTymeItem";
-import header from "../../Header/Header";
-
+import styles from "./daysOfWeek.module.css"
 
 const DaysOfWeek = () => {
+
+    console.log(Telegram.WebApp.themeParams)
 
     const [interval, setInterval] = useState([{
         id: 0,
@@ -80,22 +78,6 @@ const DaysOfWeek = () => {
             timeEnd: ''
         },],
     },])
-
-
-    function validation(event, daysOfWeek) {
-        event.preventDefault();
-        if (daysOfWeek.workTime.length === 4) {
-
-        } else {
-            setInterval(interval.map((item) => {
-                return item.id == event.target.name ? {
-                    ...item, workTime: [...item.workTime, {
-                        id: item.workTime.length, timeStart: '', timeEnd: ''
-                    }]
-                } : item
-            }))
-        }
-    }
 
     const periodOfWorks =
         [
@@ -173,6 +155,17 @@ const DaysOfWeek = () => {
         ]
 
 
+    function validation(e, daysOfWeek) {
+        e.preventDefault()
+        setInterval(interval.map((item) => {
+            return item.id == e.target.name ? {
+                ...item, workTime: [...item.workTime, {
+                    id: daysOfWeek.workTime[daysOfWeek.workTime.length-1].id+1, timeStart: '', timeEnd: ''
+                }]
+            } : item
+        }))
+    }
+
     const postTelegram = (e) => {
         e.preventDefault()
         const mas = interval.map((inter, index) => (
@@ -181,15 +174,15 @@ const DaysOfWeek = () => {
                         (inter.workTime[0].timeStart).slice(0, 2) : 0,
                         periodOfWorks[index].firstIntervalTo = inter.workTime[0].timeEnd !== '' ?
                             (inter.workTime[0].timeEnd).slice(0, 2) : 0,
-                        inter.workTime.length >= 2 ?
+                        inter.workTime.length >= 2 &&
                             (periodOfWorks[index].secondIntervalFrom = inter.workTime[1].timeStart != '' ?
                                 (inter.workTime[1].timeStart).slice(0, 2) : 0,
                                 periodOfWorks[index].secondIntervalTo = inter.workTime[1].timeEnd != '' ?
-                                    (inter.workTime[1].timeEnd).slice(0, 2) : 0) : inter.workTime.length >= 3 ?
+                                    (inter.workTime[1].timeEnd).slice(0, 2) : 0), inter.workTime.length >= 3 &&
                                 (periodOfWorks[index].thirdIntervalFrom = inter.workTime[2].timeStart != '' ?
                                     (inter.workTime[2].timeStart).slice(0, 2) : 0,
                                     periodOfWorks[index].thirdIntervalTo = inter.workTime[2].timeEnd != '' ?
-                                        (inter.workTime[2].timeEnd).slice(0, 2) : 0) : inter.workTime.length >= 4 &&
+                                        (inter.workTime[2].timeEnd).slice(0, 2) : 0), inter.workTime.length >= 4 &&
                                 (periodOfWorks[index].fourthIntervalFrom = inter.workTime[3].timeStart != '' ?
                                     (inter.workTime[3].timeStart).slice(0, 2) : 0,
                                     periodOfWorks[index].fourthIntervalTo = inter.workTime[3].timeEnd != '' ?
@@ -198,7 +191,7 @@ const DaysOfWeek = () => {
         )
         const data = periodOfWorks.filter((item) => item.firstIntervalFrom != '')
         console.log({periodOfWorks: data})
-        fetch('https://halpear.social:80/Schedule', {
+        fetch('', {
                 method: 'POST',
                 headers: {
                     "Content-Type": 'application/json',
@@ -206,9 +199,8 @@ const DaysOfWeek = () => {
                 body: JSON.stringify({periodOfWorks: data}),
             }
         ).then(res => {
-            window.location.href = "https://t.me/BeautyEyelashesBot"
-        })
 
+        })
     }
 
     const buttonAddTime = useRef([])
@@ -216,33 +208,34 @@ const DaysOfWeek = () => {
     let tg = window.Telegram.WebApp;
     tg.MainButton.color = "#143F6B";
 
-    useEffect(() => {
-        buttonSubmit.current.disabled = true
-    }, [])
-
+    const validAddTime = interval[0].workTime[interval[0].workTime.length - 1].timeStart.slice(0, 3) + 1 <= interval[0].workTime[interval[0].workTime.length - 1].timeEnd.slice(0, 3)
 
     return (
         <div className={styles.daysOfWeek}>
-            {interval.map(daysOfWeek => (
-                <div key={daysOfWeek.id} className={styles.onOfDaysItem}>
-                    <div className={daysOfWeek.isActive ? styles.oneOfDaysEnable : styles.oneOfDaysDisable}>
-                        <div className={styles.onOfDays}>
-                            <button
-                                onClick={() => {
-                                    setInterval(interval.map((item) => item.id === daysOfWeek.id ? {
-                                        ...item,
-                                        isActive: !item.isActive
-                                    } : item))
-                                }}
-                                className={daysOfWeek.isActive ? styles.onOfDaysTitleActive : styles.onOfDaysTitleNotActive}
-                                key={daysOfWeek.id}>
-                                {daysOfWeek.title}
-                            </button>
-                            <div
-                                className={daysOfWeek.isActive ? styles.oneOfDaysTimeActive : styles.oneOfDaysTimeNotActive}>
-                                <form onSubmit={(e) => e.preventDefault()}>
-                                    {daysOfWeek.workTime.map((item) => (
-                                        <IntervalTimeItem key={item.id + Math.random()}
+            <button onClick={() => Telegram.WebApp.close()}>ffffffffffffffffffffffff</button>
+            <form
+                // id={'postTelegram'}
+                onSubmit={(e) => postTelegram(e)}>
+                {interval.map(daysOfWeek => (
+                    <div key={daysOfWeek.id} className={styles.onOfDaysItem}>
+                        <div className={daysOfWeek.isActive ? styles.oneOfDaysEnable : styles.oneOfDaysDisable}>
+                            <div className={styles.onOfDays}>
+                                <button type={'button'}
+                                        onClick={() => {
+                                            setInterval(interval.map((item) => item.id === daysOfWeek.id ? {
+                                                ...item,
+                                                isActive: !item.isActive
+                                            } : item))
+                                        }}
+                                        className={daysOfWeek.isActive ? styles.onOfDaysTitleActive : styles.onOfDaysTitleNotActive}
+                                        key={daysOfWeek.id}>
+                                    {daysOfWeek.title}
+                                </button>
+                                <div
+                                    className={daysOfWeek.isActive ? styles.oneOfDaysTimeActive : styles.oneOfDaysTimeNotActive}>
+                                    {daysOfWeek.workTime.map((item, index) => (
+                                        <IntervalTimeItem key={item.id}
+                                                          index={index}
                                                           value={interval}
                                                           setValue={setInterval}
                                                           daysOfWeekId={daysOfWeek.id}
@@ -250,44 +243,38 @@ const DaysOfWeek = () => {
                                                           workTime={daysOfWeek.workTime}
                                                           startTime={item.timeStart}
                                                           endTime={item.timeEnd}
-                                                          buttonAddTime={buttonAddTime}
+                                                          prevEndTime={daysOfWeek.workTime.length>1 ? daysOfWeek.workTime[daysOfWeek.workTime.length-2].timeEnd : null}
+                                                          prevStartDate={daysOfWeek.workTime.length>1 ? daysOfWeek.workTime[daysOfWeek.workTime.length-2].timeStart : null}
                                                           buttonSubmit={buttonSubmit}
-
-                                        />))}
-                                </form>
+                                        />
+                                    ))}
+                                </div>
                             </div>
-                        </div>
-                        <div className={daysOfWeek.isActive ? styles.errorEnabled : styles.errorDisabled}>
-                             <span>
-                                 {daysOfWeek.error}
-                            </span>
-                        </div>
-
-                        <button form="intervalTimes"
-                            // disabled={true}
+                            <button
+                                type={'button'}
+                                id={daysOfWeek.id}
                                 name={daysOfWeek.id}
-                                ref={(ref) => buttonAddTime.current.push(ref)}
                                 onClick={
-                                    (event) => {
-                                        validation(event, daysOfWeek)
+                                    (e) => {
+                                        validation(e, daysOfWeek)
                                     }
                                 }
-                                className={daysOfWeek.isActive ? styles.addTimeActive : styles.addTimeNotActive}>
-                            <Plus/>
-                            Добавить время
-                        </button>
+                                className={daysOfWeek.isActive && daysOfWeek.workTime.length < 4 && daysOfWeek.workTime[interval[daysOfWeek.id].workTime.length - 1].timeStart.slice(0, 3) + 1 <= daysOfWeek.workTime[interval[daysOfWeek.id].workTime.length - 1].timeEnd.slice(0, 3) && (daysOfWeek.workTime.length > 1 ? daysOfWeek.workTime[interval[daysOfWeek.id].workTime.length - 1].timeStart >= daysOfWeek.workTime[interval[daysOfWeek.id].workTime.length - 2].timeEnd : daysOfWeek.isActive)
+                                    ? styles.addTimeActive : styles.addTimeNotActive}>
+                                <Plus/>
+                                Добавить время
+                            </button>
+                        </div>
                     </div>
+                ))}
+                <div>
+                    <button
+                        type={'submit'}
+                        ref={buttonSubmit}
+                        className={styles.btnSubmit}>Готово
+                    </button>
                 </div>
-            ))}
-            <div>
-                <button
-                    form="intervalTimes"
-                    ref={buttonSubmit}
-                    onClick={(e) => postTelegram(e)}
-                    className={styles.btnSubmit}>Готово
-                </button>
-            </div>
-            {/*<script src="https://telegram.org/js/telegram-web-app.js"></script>*/}
+            </form>
         </div>);
 };
 

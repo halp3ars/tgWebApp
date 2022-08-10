@@ -1,10 +1,11 @@
 .daysOfWeek {
 }
 
-.oneOfDaysEnable{
+.oneOfDaysEnable {
 
 }
-.oneOfDaysDisable{
+
+.oneOfDaysDisable {
     /*display: none;*/
 }
 
@@ -24,7 +25,7 @@
     border-bottom: var(--tg-theme-text-color);
 }
 
-.oneOfDaysTimeNotActive input{
+.oneOfDaysTimeNotActive input {
     color: #E0E0E0;
 }
 
@@ -51,7 +52,7 @@
     color: #FFFFFF;
 }
 
-.onOfDaysTitleNotActive{
+.onOfDaysTitleNotActive {
     min-width: 50px;
     height: 50px;
     display: flex;
@@ -95,11 +96,15 @@
     color: #3E61BC;
 }
 
+.addTimeActive:disabled {
+    color: #FFFFFF;
+}
+
 .addTimeNotActive {
     display: none;
 }
 
-.addText{
+.addText {
     margin-left: 6px;
 }
 
@@ -115,16 +120,22 @@
     background-color: #3E61BC;
     margin: 20px 0 20px 0;
 }
+
+.btnSubmit:disabled {
+    background: #8897bd;
+}
+
 /*................ERRORS...............*/
 
-.errorEnabled{
+.errorEnabled {
     margin: 5px 0 0 70px;
     font-family: 'InterMedium', sans-serif;
     color: #ff3434;
     font-size: 14px;
 
 }
-.errorDisabled{
+
+.errorDisabled {
     display: none;
 }
 

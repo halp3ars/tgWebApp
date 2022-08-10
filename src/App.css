@@ -1,3 +1,9 @@
 :root{
     --tg-theme-bg-color: #3E61BC!important;
+    --tg-color-scheme: light!important;
+    --tg-theme-button-color: #3fc1b0!important;
+    --tg-theme-button-text-color: #ffffff!important;
+    --tg-theme-hint-color: #82868a!important;
+    --tg-theme-link-color: #4be1c3!important;
+    --tg-theme-text-color: #000000!important;
 }
