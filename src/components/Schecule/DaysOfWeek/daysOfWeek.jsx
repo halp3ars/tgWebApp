@@ -5,7 +5,6 @@ import styles from "./daysOfWeek.module.css"
 
 const DaysOfWeek = () => {
 
-    console.log(Telegram.WebApp.themeParams)
 
     const [interval, setInterval] = useState([{
         id: 0,
@@ -212,6 +211,7 @@ const DaysOfWeek = () => {
 
     return (
         <div className={styles.daysOfWeek}>
+            {/* eslint-disable-next-line no-undef */}
             <button onClick={() => Telegram.WebApp.close()}>ffffffffffffffffffffffff</button>
             <form
                 // id={'postTelegram'}
