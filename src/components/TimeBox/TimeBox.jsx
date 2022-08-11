@@ -20,7 +20,10 @@ const TimeBox = () => {
             timeEnd: '',
         }])
 
-        const addWorkTimeButton = useRef()
+    // eslint-disable-next-line no-undef
+    const { id } = Telegram.WebApp.initDataUnsafe.user
+
+    const addWorkTimeButton = useRef()
         const submitButton = useRef()
 
         // Запрет на изначальное отправку времени
@@ -222,7 +225,7 @@ const TimeBox = () => {
                     headers: {
                         "Content-Type": 'application/json',
                     },
-                    body: JSON.stringify({periodOfWorks: periodOfWorks}),
+                    body: JSON.stringify({periodOfWorks: periodOfWorks, "telegramId":id}),
                 }
             ).then(res => {
                 // eslint-disable-next-line no-undef

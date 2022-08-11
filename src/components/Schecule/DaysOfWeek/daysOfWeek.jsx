@@ -5,7 +5,8 @@ import styles from "./daysOfWeek.module.css"
 
 const DaysOfWeek = () => {
 
-    // Telegram.WebApp.colorScheme("dark")
+    // eslint-disable-next-line no-undef
+    const { id } = Telegram.WebApp.initDataUnsafe.user
 
     const [interval, setInterval] = useState([{
         id: 0,
@@ -190,12 +191,12 @@ const DaysOfWeek = () => {
             )
         )
         const data = periodOfWorks.filter((item) => item.firstIntervalFrom != '')
-        fetch('https://halpear.social:80/Schedule', {
+        fetch('', {
                 method: 'POST',
                 headers: {
                     "Content-Type": 'application/json',
                 },
-                body: JSON.stringify({periodOfWorks: data}),
+                body: JSON.stringify({periodOfWorks: data, "telegramId": id}),
             }
         ).then(res => {
             // eslint-disable-next-line no-undef
