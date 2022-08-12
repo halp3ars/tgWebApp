@@ -6,7 +6,7 @@ import styles from "./daysOfWeek.module.css"
 const DaysOfWeek = () => {
 
     // eslint-disable-next-line no-undef
-    const { id } = Telegram.WebApp.initDataUnsafe.user
+    // const { id } = Telegram.WebApp.initDataUnsafe.user
 
     const [interval, setInterval] = useState([{
         id: 0,
@@ -153,8 +153,7 @@ const DaysOfWeek = () => {
             fourthIntervalTo: 0,
             day: "Воскресенье"
         }
-        ]
-
+    ]
 
     function validation(e, daysOfWeek) {
         e.preventDefault()
@@ -191,12 +190,12 @@ const DaysOfWeek = () => {
             )
         )
         const data = periodOfWorks.filter((item) => item.firstIntervalFrom != '')
-        fetch('https://halpear.social:80/Schedule', {
+        fetch('', {
                 method: 'POST',
                 headers: {
                     "Content-Type": 'application/json',
                 },
-                body: JSON.stringify({periodOfWorks: data, "telegramId": id}),
+                body: JSON.stringify({periodOfWorks: data, "telegramId": 'id'}),
             }
         ).then(res => {
             // eslint-disable-next-line no-undef
@@ -204,23 +203,11 @@ const DaysOfWeek = () => {
         })
     }
 
-    const buttonAddTime = useRef([])
     const buttonSubmit = useRef(null)
     let tg = window.Telegram.WebApp;
     tg.MainButton.color = "#143F6B";
 
-    const validAddTime = interval[0].workTime[interval[0].workTime.length - 1].timeStart.slice(0, 3) + 1 <= interval[0].workTime[interval[0].workTime.length - 1].timeEnd.slice(0, 3)
-
     const masActive = interval.filter(item => item.isActive)
-
-    // if (masActive.length !== 7){
-    //     console.log(buttonSubmit.current)
-    //     buttonSubmit.current.disabled = true
-    // }
-    // else{
-    //     buttonSubmit.current.disabled = false
-    // }
-
 
     return (
         <div className={styles.daysOfWeek}>
