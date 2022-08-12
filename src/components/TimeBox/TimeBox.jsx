@@ -6,7 +6,7 @@ import IntervalTimeItem from "../IntervalTimeItem/Interval.jsx";
 
 const TimeBox = (props) => {
 
-    const {userData} = props
+        const {userData} = props
         // Ошибки
         const [errorMinChange, setErrorMinChange] = useState(false)
         const [errorStartEndChange, setErrorStartEndChange] = useState(false)
@@ -22,10 +22,10 @@ const TimeBox = (props) => {
             timeEnd: '',
         }])
 
-    // eslint-disable-next-line no-undef
-    const { id } = Telegram.WebApp.initDataUnsafe.user
+        // eslint-disable-next-line no-undef
+        const {id} = Telegram.WebApp.initDataUnsafe.user
 
-    const addWorkTimeButton = useRef()
+        const addWorkTimeButton = useRef()
         const submitButton = useRef()
 
         // Запрет на изначальное отправку времени
@@ -198,19 +198,6 @@ const TimeBox = (props) => {
             }]
 
         const postTG = (e) => {
-            console.log({...userData,   "telegramId":'id'})
-            fetch('https://halpear.social:80/master',
-                {
-                    method: 'POST',
-                    headers: {
-                        "Content-Type": 'application/json',
-                    },
-                    body: JSON.stringify({...userData,  "telegramId":id}),
-                }
-            ).then(res => {
-            })
-
-            e.preventDefault()
             const mas = periodOfWorks.map((inter, index) => (
                 inter.firstIntervalFrom = workTime[0].timeStart !== '' ?
                     (workTime[0].timeStart).slice(0, 2) : 0,
@@ -232,19 +219,33 @@ const TimeBox = (props) => {
                                     inter.fourthIntervalTo = workTime[3].timeEnd !== '' ?
                                         (workTime[3].timeEnd).slice(0, 2) : 0) : 0 : 0 : 0
             ))
-            /*  LINK SIMPLE SCHEDULE*/
             fetch('https://halpear.social:80/Schedule',
                 {
                     method: 'POST',
                     headers: {
                         "Content-Type": 'application/json',
                     },
-                    body: JSON.stringify({periodOfWorks: periodOfWorks}),
+                    body: JSON.stringify({...userData, "telegramId": id}),
                 }
             ).then(res => {
-                // eslint-disable-next-line no-undef
-                Telegram.WebApp.close()
+                fetch('https://halpear.social:80/Schedule',
+                    {
+                        method: 'POST',
+                        headers: {
+                            "Content-Type": 'application/json',
+                        },
+                        body: JSON.stringify({periodOfWorks: periodOfWorks, "telegramId": id}),
+                    }
+                ).then(res => {
+                    // eslint-disable-next-line no-undef
+                    Telegram.WebApp.close()
+                })
             })
+
+            e.preventDefault()
+
+            /*  LINK SIMPLE SCHEDULE*/
+
         }
 
 
