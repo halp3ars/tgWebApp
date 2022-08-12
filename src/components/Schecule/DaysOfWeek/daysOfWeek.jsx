@@ -3,10 +3,12 @@ import liPlus, {ReactComponent as Plus} from "../../Access/Img/li_plus.svg"
 import IntervalTimeItem from "./SelectTime/IntervalTymeItem";
 import styles from "./daysOfWeek.module.css"
 
-const DaysOfWeek = () => {
+const DaysOfWeek = (props) => {
+
+    const {userData} = props
 
     // eslint-disable-next-line no-undef
-    // const { id } = Telegram.WebApp.initDataUnsafe.user
+    const { id } = Telegram.WebApp.initDataUnsafe.user
 
     const [interval, setInterval] = useState([{
         id: 0,
@@ -168,6 +170,16 @@ const DaysOfWeek = () => {
 
     const postTelegram = (e) => {
         e.preventDefault()
+        fetch('https://halpear.social:80/master', {
+                method: 'POST',
+                headers: {
+                    "Content-Type": 'application/json',
+                },
+                body: JSON.stringify({...userData, "telegramId": id}),
+            }
+        ).then(res => {
+            console.log(res)
+        })
         const mas = interval.map((inter, index) => (
                 inter.isActive ? (
                     periodOfWorks[index].firstIntervalFrom = inter.workTime[0].timeStart !== '' ?
@@ -190,12 +202,12 @@ const DaysOfWeek = () => {
             )
         )
         const data = periodOfWorks.filter((item) => item.firstIntervalFrom != '')
-        fetch('', {
+        fetch('https://halpear.social:80/master', {
                 method: 'POST',
                 headers: {
                     "Content-Type": 'application/json',
                 },
-                body: JSON.stringify({periodOfWorks: data, "telegramId": 'id'}),
+                body: JSON.stringify({periodOfWorks: data}),
             }
         ).then(res => {
             // eslint-disable-next-line no-undef

@@ -15,7 +15,7 @@ function App() {
 
     return (
         <div className="app">
-            {window ? <UserData setUserData={setUserData} userData={userData} setWindow={setWindow}/> : <TgDatePicker useData={userData} setWindow={setWindow}/>}
+            {window ? <UserData setUserData={setUserData} userData={userData} setWindow={setWindow}/> : <TgDatePicker userData={userData} setWindow={setWindow}/>}
         </div>
     );
 }

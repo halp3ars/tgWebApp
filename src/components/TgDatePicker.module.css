@@ -13,6 +13,16 @@
     color: var(--tg-theme-text-color);
 }
 
+.btnBack{
+    height: 35px;
+    width: 15%;
+    border: none;
+    border-radius: 5px;
+    background: #3E61BC;
+    color: white;
+    font-family: 'InterRegular', sans-serif;
+}
+
 .fullPage{
     width: 100%;
 }

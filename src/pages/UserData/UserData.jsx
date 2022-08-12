@@ -15,8 +15,7 @@ export const UserData = (props) => {
                    required={true} placeholder={'Введите фамилию'} type="text"/>
             <input className={styles.inputData} name={'address'}
                    onChange={(e)=>setUserData({...userData, [e.target.name]:e.target.value})}
-                   required={true} placeholder={"Введите адресс"} type="text"/>
-            {/*<button onClick={getPhoneNumber()}></button>*/}
+                   required={true} placeholder={"Введите адресс"} type="text" maxLength={100}/>
             <button type={"submit"} className={styles.btnSubmitData}>Продолжить</button>
         </form>
     );

@@ -7,12 +7,12 @@ import styles from "./TgDatePicker.module.css"
 
 const TgDatePicker = (props) => {
 
-    const {setWindow} = props
+    const {userData, setWindow} = props
 
     const [pageActive, setPageActive] = useState(false)
     return (
         <div className={styles.container}>
-            <button onClick={() => setWindow(true)}>Назад</button>
+            <button className={styles.btnBack} onClick={() => setWindow(true)}>Назад</button>
             {/*<img src={IphoneInfo} alt="info"/>*/}
             <div className={styles}>
                 {/*<Header/>*/}
@@ -22,7 +22,7 @@ const TgDatePicker = (props) => {
                         setPageActive={setPageActive}
                     />
                     <h1 className={styles.title}>Выберите график работы</h1>
-                    {!pageActive ? <Schecule/> : <EasySchedulePage/>
+                    {!pageActive ? <Schecule userData={userData}/> : <EasySchedulePage userData={userData}/>
                     }
                 </div>
             </div>

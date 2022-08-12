@@ -5,12 +5,14 @@ import DaysOfWeek from "./DaysOfWeek/daysOfWeek";
 
 
 
-const Schecule = () => {
+const Schecule = (props) => {
+
+    const {userData} = props
 
     return (
         <div className={styles.schecule}>
             <div className={styles.daysOfWeek}>
-                <DaysOfWeek/>
+                <DaysOfWeek userData={userData}/>
             </div>
         </div>
 

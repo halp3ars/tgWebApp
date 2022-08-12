@@ -3,7 +3,9 @@ import TimeBox from "../components/TimeBox/TimeBox.jsx";
 
 import styles from './EasySchedulePage.module.css'
 
-const EasySchedulePage = () => {
+const EasySchedulePage = (props) => {
+
+    const {userData} = props
 
     return (
         <div className={styles.wrapper}>
@@ -13,7 +15,7 @@ const EasySchedulePage = () => {
                             Если Вы хотите более гибкий график,
                             воспользуйтесь вкладкой “Ежедневное расписание”
                         </span>
-                    <TimeBox/>
+                    <TimeBox userData={userData}/>
                 </div>
             </div>
         </div>

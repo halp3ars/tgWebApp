@@ -4,7 +4,9 @@ import {ReactComponent as Plus} from "../Access/Img/li_plus.svg";
 import styles from './TimeBox.module.css'
 import IntervalTimeItem from "../IntervalTimeItem/Interval.jsx";
 
-const TimeBox = () => {
+const TimeBox = (props) => {
+
+    const {userData} = props
         // Ошибки
         const [errorMinChange, setErrorMinChange] = useState(false)
         const [errorStartEndChange, setErrorStartEndChange] = useState(false)
@@ -21,7 +23,7 @@ const TimeBox = () => {
         }])
 
     // eslint-disable-next-line no-undef
-    // const { id } = Telegram.WebApp.initDataUnsafe.user
+    const { id } = Telegram.WebApp.initDataUnsafe.user
 
     const addWorkTimeButton = useRef()
         const submitButton = useRef()
@@ -196,6 +198,18 @@ const TimeBox = () => {
             }]
 
         const postTG = (e) => {
+            console.log({...userData,   "telegramId":'id'})
+            fetch('https://halpear.social:80/master',
+                {
+                    method: 'POST',
+                    headers: {
+                        "Content-Type": 'application/json',
+                    },
+                    body: JSON.stringify({...userData,  "telegramId":id}),
+                }
+            ).then(res => {
+            })
+
             e.preventDefault()
             const mas = periodOfWorks.map((inter, index) => (
                 inter.firstIntervalFrom = workTime[0].timeStart !== '' ?
@@ -225,7 +239,7 @@ const TimeBox = () => {
                     headers: {
                         "Content-Type": 'application/json',
                     },
-                    body: JSON.stringify({periodOfWorks: periodOfWorks, "telegramId":'id'}),
+                    body: JSON.stringify({periodOfWorks: periodOfWorks}),
                 }
             ).then(res => {
                 // eslint-disable-next-line no-undef
