@@ -170,6 +170,7 @@ const DaysOfWeek = (props) => {
 
     const postTelegram = (e) => {
         e.preventDefault()
+        buttonSubmit.current.disabled = true
         const mas = interval.map((inter, index) => (
                 inter.isActive ? (
                     periodOfWorks[index].firstIntervalFrom = inter.workTime[0].timeStart !== '' ?
@@ -193,7 +194,7 @@ const DaysOfWeek = (props) => {
         )
         const data = periodOfWorks.filter((item) => item.firstIntervalFrom != '')
 
-        fetch('https://halpear.social:80/master', {
+        fetch('https://halpear.social:80/master ', {
                 method: 'POST',
                 headers: {
                     "Content-Type": 'application/json',
@@ -206,13 +207,16 @@ const DaysOfWeek = (props) => {
                     headers: {
                         "Content-Type": 'application/json',
                     },
-                    body: JSON.stringify({periodOfWorks: data,"telegramId": id }),
+                    body: JSON.stringify({periodOfWorks: data, "telegramId": id}),
                 }
             ).then(res => {
+                buttonSubmit.current.disabled = false
                 // eslint-disable-next-line no-undef
                 Telegram.WebApp.close()
             })
-        })
+        }).finally(() =>
+            buttonSubmit.current.disabled = false
+        )
 
 
     }

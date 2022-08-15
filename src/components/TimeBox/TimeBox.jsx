@@ -198,6 +198,7 @@ const TimeBox = (props) => {
             }]
 
         const postTG = (e) => {
+            submitButton.current.disabled = true
             const mas = periodOfWorks.map((inter, index) => (
                 inter.firstIntervalFrom = workTime[0].timeStart !== '' ?
                     (workTime[0].timeStart).slice(0, 2) : 0,
@@ -219,7 +220,7 @@ const TimeBox = (props) => {
                                     inter.fourthIntervalTo = workTime[3].timeEnd !== '' ?
                                         (workTime[3].timeEnd).slice(0, 2) : 0) : 0 : 0 : 0
             ))
-            fetch('https://halpear.social:80/Schedule',
+            fetch('https://halpear.social:80/master',
                 {
                     method: 'POST',
                     headers: {
@@ -237,9 +238,12 @@ const TimeBox = (props) => {
                         body: JSON.stringify({periodOfWorks: periodOfWorks, "telegramId": id}),
                     }
                 ).then(res => {
+                    submitButton.current.disabled = false
                     // eslint-disable-next-line no-undef
                     Telegram.WebApp.close()
                 })
+            }).finally(() => {
+                submitButton.current.disabled = false
             })
 
             e.preventDefault()
