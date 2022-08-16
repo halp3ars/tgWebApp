@@ -58,125 +58,126 @@
 
 .checkboxItemActive{
     background: var(--tg-theme-bg-color);
+    color: black;
 }
 
-/*dropdown styles*/
-.title {
-    color: var(--tg-theme-text-color);
-    font-size: 20px;
-    font-family: 'InterMedium', sans-serif;
-}
+/*!*dropdown styles*!*/
+/*.title {*/
+/*    color: var(--tg-theme-text-color);*/
+/*    font-size: 20px;*/
+/*    font-family: 'InterMedium', sans-serif;*/
+/*}*/
 
-.Default {
-    position: relative;
-    width: 80%;
-}
+/*.Default {*/
+/*    position: relative;*/
+/*    width: 80%;*/
+/*}*/
 
-.arrowDefault, .arrowAnimation {
-    position: absolute;
-    right: 16px;
-    bottom: 21px;
-    transition: .75s;
-}
+/*.arrowDefault, .arrowAnimation {*/
+/*    position: absolute;*/
+/*    right: 16px;*/
+/*    bottom: 21px;*/
+/*    transition: .75s;*/
+/*}*/
 
-.arrowAnimation {
-    transform: rotate(-180deg);
-}
+/*.arrowAnimation {*/
+/*    transform: rotate(-180deg);*/
+/*}*/
 
-.labelCheckbox input, .labelCheckboxChecked input {
-    display: none;
-}
+/*.labelCheckbox input, .labelCheckboxChecked input {*/
+/*    display: none;*/
+/*}*/
 
-.labelCheckboxChecked {
+/*.labelCheckboxChecked {*/
 
-}
+/*}*/
 
-.check {
-    display: block;
-    height: 13px;
-    width: 13px;
-    outline: 1px solid #E9E9E9;
-    border-radius: 2px;
-    cursor: pointer;
-}
+/*.check {*/
+/*    display: block;*/
+/*    height: 13px;*/
+/*    width: 13px;*/
+/*    outline: 1px solid #E9E9E9;*/
+/*    border-radius: 2px;*/
+/*    cursor: pointer;*/
+/*}*/
 
-.activeDrop {
-    width: 100%;
-    padding: 0 40px 0 16px;
-    border: 1px grey solid;
-    border-radius: 6px;
-    background: none;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    text-align: start;
-    cursor: pointer;
+/*.activeDrop {*/
+/*    width: 100%;*/
+/*    padding: 0 40px 0 16px;*/
+/*    border: 1px grey solid;*/
+/*    border-radius: 6px;*/
+/*    background: none;*/
+/*    overflow: hidden;*/
+/*    white-space: nowrap;*/
+/*    text-overflow: ellipsis;*/
+/*    text-align: start;*/
+/*    cursor: pointer;*/
 
-}
+/*}*/
 
-.listDropActive {
-    z-index: 1;
-    position: absolute;
-    width: 100%;
-    padding: 0 16px;
-    margin-top: 5px;
-    border: 1px grey solid;
-    border-radius: 6px;
-    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
-    background: white;
-    max-height: 422px;
-    border-right: 16px solid ;
-    outline: 1px solid white;
-}
+/*.listDropActive {*/
+/*    z-index: 1;*/
+/*    position: absolute;*/
+/*    width: 100%;*/
+/*    padding: 0 16px;*/
+/*    margin-top: 5px;*/
+/*    border: 1px grey solid;*/
+/*    border-radius: 6px;*/
+/*    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);*/
+/*    background: white;*/
+/*    max-height: 422px;*/
+/*    border-right: 16px solid ;*/
+/*    outline: 1px solid white;*/
+/*}*/
 
-.dropItem {
-    transition: .25s;
-}
+/*.dropItem {*/
+/*    transition: .25s;*/
+/*}*/
 
-.dropItem:hover {
-    color: darkblue;
-    transition: .25s;
-}
+/*.dropItem:hover {*/
+/*    color: darkblue;*/
+/*    transition: .25s;*/
+/*}*/
 
-.labelCheckbox input + .check {
-    outline: 1px solid #2969FF;
-    border-radius: 2px;
-}
-
-
-.dropItemChecked {
-}
-
-.labelCheckbox input + .check {
-    height: 13px;
-    width: 13px;
-    border: 2px solid #ffffff;
-    border-radius: 2px;
-    background-color: #2969FF;
-    background-position: center;
-}
+/*.labelCheckbox input + .check {*/
+/*    outline: 1px solid #2969FF;*/
+/*    border-radius: 2px;*/
+/*}*/
 
 
-.dropItem:last-child, .dropItemActive:last-child {
-    border-bottom: none;
-}
+/*.dropItemChecked {*/
+/*}*/
 
-button:last-child {
-    margin-bottom: 17px;
-}
-
-button {
-    width: 100%;
-    height: 50px;
-    border: none;
-}
+/*.labelCheckbox input + .check {*/
+/*    height: 13px;*/
+/*    width: 13px;*/
+/*    border: 2px solid #ffffff;*/
+/*    border-radius: 2px;*/
+/*    background-color: #2969FF;*/
+/*    background-position: center;*/
+/*}*/
 
 
-.listDropHidden {
-    display: none;
-}
+/*.dropItem:last-child, .dropItemActive:last-child {*/
+/*    border-bottom: none;*/
+/*}*/
 
-.exclude {
+/*button:last-child {*/
+/*    margin-bottom: 17px;*/
+/*}*/
 
-    border-bottom: none;
-}
+/*button {*/
+/*    width: 100%;*/
+/*    height: 50px;*/
+/*    border: none;*/
+/*}*/
+
+
+/*.listDropHidden {*/
+/*    display: none;*/
+/*}*/
+
+/*.exclude {*/
+
+/*    border-bottom: none;*/
+/*}*/

@@ -5,24 +5,6 @@ export const UserData = (props) => {
 
     const {setWindow, setUserData, userData} = props
 
-//     const [isActive, setActive] = useState(false)
-//     const [isCheckmark, setCheckmark] = useState(false)
-//     const [activeFilters, setActiveFilters] = useState([])
-//     const [dropDownItems, setDropDownItems] = useState([{id:0, title: "Бровки", isChecked: false}])
-//
-//     const chooseFilterItem = (id) => {
-//         setDropDownItems((prevState) =>
-//             prevState.map((item) =>
-//                 item.id === id ? { ...item, isChecked: !item.isChecked } : item
-//             )
-//         )
-//     }
-//
-//     useEffect(() => {
-//         setActiveFilters(dropDownItems.filter((item) => item.isChecked))
-//     }, [dropDownItems])
-//
-// const ref = useRef()
     const [isActiveStatus, setActiveStatus] = useState([
         {id: 1, isActive: false},
         {id: 2, isActive: false},
@@ -72,37 +54,6 @@ export const UserData = (props) => {
                     Реснички
                 </div>
             </div>
-
-            {/*<div  className={styles.Default} ref={ref}>*/}
-            {/*    <div className={styles.title}>Выбрать услуги</div>*/}
-            {/*    <button*/}
-            {/*        type={"button"}*/}
-            {/*        className={styles.activeDrop}*/}
-            {/*        onClick={() => setCheckmark(prevState => !prevState)}*/}
-            {/*    >*/}
-            {/*        {activeFilters.length && 'Не выбран'}*/}
-            {/*    </button>*/}
-            {/*    <div className={isCheckmark ? styles.listDropActive : styles.listDropHidden}>*/}
-            {/*        {dropDownItems.map((dropdownItem) => (*/}
-            {/*            <button*/}
-            {/*                className={*/}
-            {/*                    dropdownItem.isChecked*/}
-            {/*                        ? styles.dropItemChecked*/}
-            {/*                        : styles.dropItem*/}
-            {/*                }*/}
-            {/*                onClick={() => chooseFilterItem(dropdownItem.id)}*/}
-            {/*                key={dropdownItem.id}*/}
-            {/*            >*/}
-            {/*                <label className={styles.labelCheckbox}>*/}
-            {/*                    <input disabled={true} />*/}
-            {/*                    <div className={styles.check} />*/}
-            {/*                </label>*/}
-            {/*                <div>{dropdownItem.title}</div>*/}
-            {/*            </button>*/}
-            {/*        ))}*/}
-            {/*    </div>*/}
-            {/*</div>*/}
-
             <button type={"submit"} disabled={userData.activityList.length === 0 ? true : false} className={styles.btnSubmitData}>Продолжить</button>
         </form>
     );
