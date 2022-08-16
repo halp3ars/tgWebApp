@@ -49,7 +49,7 @@
     align-items: center;
     height: 35px;
     padding: 5px 5px;
-    background: var(--tg-theme-bg-color);
+    background: #3E61BC;
     font-family: 'InterMedium', sans-serif;
     border-radius: 5px;
     color: white;
@@ -61,11 +61,11 @@
 }
 
 /*!*dropdown styles*!*/
-/*.title {*/
-/*    color: var(--tg-theme-text-color);*/
-/*    font-size: 20px;*/
-/*    font-family: 'InterMedium', sans-serif;*/
-/*}*/
+.title {
+    color: var(--tg-theme-text-color);
+    font-size: 20px;
+    font-family: 'InterMedium', sans-serif;
+}
 
 /*.Default {*/
 /*    position: relative;*/
