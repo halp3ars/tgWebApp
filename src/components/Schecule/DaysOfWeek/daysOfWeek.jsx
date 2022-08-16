@@ -276,7 +276,7 @@ const DaysOfWeek = (props) => {
                                         validation(e, daysOfWeek)
                                     }
                                 }
-                                className={daysOfWeek.isActive && daysOfWeek.workTime.length < 4 && daysOfWeek.workTime[interval[daysOfWeek.id].workTime.length - 1].timeStart.slice(0, 3) + 1 <= daysOfWeek.workTime[interval[daysOfWeek.id].workTime.length - 1].timeEnd.slice(0, 3) && (daysOfWeek.workTime.length > 1 ? daysOfWeek.workTime[interval[daysOfWeek.id].workTime.length - 1].timeStart >= daysOfWeek.workTime[interval[daysOfWeek.id].workTime.length - 2].timeEnd : daysOfWeek.isActive)
+                                className={daysOfWeek.isActive && daysOfWeek.workTime.length < 4 && daysOfWeek.workTime[interval[daysOfWeek.id].workTime.length - 1].timeStart.slice(0, 3) + 1 <= daysOfWeek.workTime[interval[daysOfWeek.id].workTime.length - 1].timeEnd.slice(0, 3) && (daysOfWeek.workTime.length > 1 ? daysOfWeek.workTime[interval[daysOfWeek.id].workTime.length - 1].timeStart >= daysOfWeek.workTime[interval[daysOfWeek.id].workTime.length - 2].timeEnd : daysOfWeek.isActive) && (daysOfWeek.workTime[interval[daysOfWeek.id].workTime.length - 1].timeEnd !== '23:00')
                                     ? styles.addTimeActive : styles.addTimeNotActive}>
                                 <Plus/>
                                 Добавить время

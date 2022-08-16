@@ -6,7 +6,7 @@
     margin-top: 50px;
 }
 
-.inputData{
+.inputData {
     width: 80%;
     height: 50px;
     padding-left: 28px;
@@ -19,7 +19,7 @@
     background-color: #EFF0F5;
 }
 
-.btnSubmitData{
+.btnSubmitData, .btnSubmitData {
     width: 80%;
     height: 50px;
     border-radius: 10px;
@@ -30,4 +30,153 @@
     color: #fff;
     background-color: #3E61BC;
     margin: 20px 0 20px 0;
+}
+
+.btnSubmitData:disabled{
+    background-color: #999999;
+
+}
+
+.checkboxWrap {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.checkboxItem, .checkboxItemActive {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    height: 35px;
+    padding: 5px 5px;
+    background: #e9e9e9;
+    border: 1px solid #e9e9e9;
+    font-family: 'InterMedium', sans-serif;
+    border-radius: 5px;
+    color: var(--tg-theme-text-color);
+}
+
+.checkboxItemActive{
+    background: var(--tg-theme-bg-color);
+}
+
+/*dropdown styles*/
+.title {
+    color: var(--tg-theme-text-color);
+    font-size: 20px;
+    font-family: 'InterMedium', sans-serif;
+}
+
+.Default {
+    position: relative;
+    width: 80%;
+}
+
+.arrowDefault, .arrowAnimation {
+    position: absolute;
+    right: 16px;
+    bottom: 21px;
+    transition: .75s;
+}
+
+.arrowAnimation {
+    transform: rotate(-180deg);
+}
+
+.labelCheckbox input, .labelCheckboxChecked input {
+    display: none;
+}
+
+.labelCheckboxChecked {
+
+}
+
+.check {
+    display: block;
+    height: 13px;
+    width: 13px;
+    outline: 1px solid #E9E9E9;
+    border-radius: 2px;
+    cursor: pointer;
+}
+
+.activeDrop {
+    width: 100%;
+    padding: 0 40px 0 16px;
+    border: 1px grey solid;
+    border-radius: 6px;
+    background: none;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    text-align: start;
+    cursor: pointer;
+
+}
+
+.listDropActive {
+    z-index: 1;
+    position: absolute;
+    width: 100%;
+    padding: 0 16px;
+    margin-top: 5px;
+    border: 1px grey solid;
+    border-radius: 6px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.08);
+    background: white;
+    max-height: 422px;
+    border-right: 16px solid ;
+    outline: 1px solid white;
+}
+
+.dropItem {
+    transition: .25s;
+}
+
+.dropItem:hover {
+    color: darkblue;
+    transition: .25s;
+}
+
+.labelCheckbox input + .check {
+    outline: 1px solid #2969FF;
+    border-radius: 2px;
+}
+
+
+.dropItemChecked {
+}
+
+.labelCheckbox input + .check {
+    height: 13px;
+    width: 13px;
+    border: 2px solid #ffffff;
+    border-radius: 2px;
+    background-color: #2969FF;
+    background-position: center;
+}
+
+
+.dropItem:last-child, .dropItemActive:last-child {
+    border-bottom: none;
+}
+
+button:last-child {
+    margin-bottom: 17px;
+}
+
+button {
+    width: 100%;
+    height: 50px;
+    border: none;
+}
+
+
+.listDropHidden {
+    display: none;
+}
+
+.exclude {
+
+    border-bottom: none;
 }

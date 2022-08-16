@@ -10,7 +10,8 @@ function App() {
     const [userData, setUserData] = useState({
         name: '',
         surname:'',
-        address: ''
+        address: '',
+        activityList: []
     })
 
     return (
